@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+$font-body: "Nunito" sans-serif;
+$font-heading: "Playfair Display", serif;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", "Playfair Display", sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: transparent;
+    color: black;
+    padding: 15px 0;
+
+    .container {
+        max-width: 100%;
+        margin: auto 120px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+
+        li a {
+            color: black;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+
+            &:hover {
+                color: #f39c12;
+            }
+        }
+    }
+
+    /* Hamburger Icon */
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+
+        span {
+            width: 25px;
+            height: 3px;
+            background: black;
+            transition: all 0.3s ease;
+        }
+
+        &.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        &.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        &.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+    }
+
+    /* Responsive */
+    @media only screen and (max-width: 768px) {
+        .nav-links {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: #111;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+            display: none;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .menu-toggle {
+            display: flex;
+        }
+    }
+}
+
+/* hero section style*/
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 120px;
+    padding: 80px 0;
+
+    /* Left content */
+    div:first-child {
+        max-width: 486px;
+
+        h3 {
+            color: #fdc435;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: $font-body;
+        }
+
+        h2 {
+            font-size: 64px;
+            font-weight: bold;
+            font-family: $font-heading;
+            margin: 15px 0;
+        }
+
+        p {
+            font-size: 24px;
+            color: #828282;
+            margin-bottom: 25px;
+        }
+
+        /* Buttons container */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-start;
+            width: 100%;
+
+            button:first-child {
+                background: #fdc435;
+                padding: 10px 25px;
+                border-radius: 5px;
+                border: 1px solid #fdc435;
+                color: black;
+                transition: 0.3s;
+            }
+
+            button:first-child:hover {
+                background: transparent;
+                border-color: black;
+            }
+
+            button:last-child {
+                background: transparent;
+                padding: 10px 25px;
+                border-radius: 5px;
+                border: 1px solid black;
+                color: black;
+                transition: 0.3s;
+            }
+
+            button:last-child:hover {
+                background: #fdc435;
+                border-color: #fdc435;
+            }
+        }
+    }
+
+
+    /* Responsive: Tablet/Mobile */
+    @media (max-width: 1024px) {
+        margin: 0 60px;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+        margin: 0 20px;
+
+        div:first-child {
+            max-width: 100%;
+        }
+
+        div:last-child {
+            justify-content: center;
+            margin-top: 30px;
+
+            img {
+                max-width: 80%;
+            }
+        }
+
+        .btn-group {
+            justify-content: center;
+        }
+    }
+}
+
+/* Right image */
+.hero-image {
+    position: relative;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-bg {
+    background: url(../images/hero_image_bg.png);
+    background-size: cover;
+    position: absolute;
+
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-image img {
+    width: 85%;
+    position: relative;
+    z-index: 1;
+}
